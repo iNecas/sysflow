@@ -1,0 +1,25 @@
+<h1>Run commands in parallel</h2>
+
+<p>
+  Enter commands to run. Every line will be run in parallel, updating
+  the output of the task
+</p>
+
+<p>
+  It uses Dynflow to run and update the commands. The running commands
+  don't consume any additional threads besides the Dynflow's thread
+  pool, that is used just for updating the status (not being blocked
+  all the time the command is being run).
+<p>
+<% if flash[:alert] %>
+  <span class="alert"><%= flash[:alert] %></span>
+<% end %>
+
+<%= form_tag(commands_path) do %>
+  <p>
+    <%= text_area_tag :commands, @commands, class: "command-input" %>
+  </p>
+  <p>
+    <%= submit_tag "Run" %>
+  </p>
+<% end %>

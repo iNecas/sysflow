@@ -1,0 +1,19 @@
+<h1>Command outputs</h1>
+
+Keep refreshing to see the output updates.
+For even more details, go to
+<%= link_to "Dyntask detail page", dyntask_task_path(id: @task.id) %>
+or
+<%= link_to "Dynflow execution plan page", "/dyntask/dynflow/#{@task.external_id}" %>
+
+
+<% @task.output.each do |command_task| %>
+  <div class="task">
+<pre class="command-output">$ <%= command_task[:input][:cmd] %>
+<%= command_task[:output][:result] %>
+<% if exit_status = command_task[:output][:exit_status] -%>
+$ echo $?
+<%= exit_status %>
+<%- end -%></pre>
+  </div>
+<% end %>
