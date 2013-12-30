@@ -8,7 +8,7 @@ module Sysflow
   # actions path to the eager_load_paths. Otherwise, it requires
   # the actions directly.
   def self.dynflow_load(dyntask_module = nil)
-    Sysflow::SystemConnector.initialize
+    Sysflow::SystemConnector.initialize unless Sysflow::SystemConnector.instance
     unless dyntask_module
       dyntask_module = Dyntask if defined? Dyntask
     end
