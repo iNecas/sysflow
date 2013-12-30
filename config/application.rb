@@ -9,7 +9,7 @@ Bundler.require(:default, Rails.env)
 module Sysflow
   class Application < Rails::Application
 
-    config.autoload_paths += Dir["#{config.root}/app/lib"]
+    config.autoload_paths += Dir["#{config.root}/lib"]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

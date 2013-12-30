@@ -1,2 +1,2 @@
-require 'system_connector'
-SystemConnector.initialize
+require 'sysflow/system_connector'
+Sysflow::SystemConnector.initialize

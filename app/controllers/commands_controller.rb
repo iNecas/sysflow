@@ -13,8 +13,8 @@ class CommandsController < ApplicationController
       { cmd: cmd }
     end
     if commands.any?
-      task = Dyntask.async_task(::Actions::BulkAction,
-                                ::Actions::Command,
+      task = Dyntask.async_task(Sysflow::Actions::BulkAction,
+                                Sysflow::Actions::Command,
                                 commands)
       redirect_to(command_path(id: task.id))
     else
