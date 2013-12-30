@@ -22,6 +22,28 @@ in parallel) and hit "Run". The task detail will be shown with the
 current status of the commands. You can keep the pages refreshing to
 see current status.
 
+Reusing in another apps
+-----------------------
+
+The actions and services defined in Sysflow can be used in other apps
+that run [Dynflow](https://www.github.com/iNecas/dynflow) on backend.
+All one needs is to add the dependency into Gemfile:
+
+```ruby
+gem 'sysflow', git: 'git@github.com:iNecas/sysflow.git'
+```
+
+and run the following code in the initialization phase of the application
+(perhaps in `config/initializers/sysflow.rb`):
+
+```
+Sysflow.dynflow_load
+```
+
+If [Dyntask](https://www.github.com/iNecas/dyntask) is present, it
+adds the actions to eager load paths, so that code reloading works
+in development mode as well.
+
 Purpose
 -------
 
@@ -29,12 +51,8 @@ For now, this app serves as a simple example of using
 [Dynflow](https://www.github.com/iNecas/dynflow) and
 [Dyntask](https://www.github.com/iNecas/dyntask).
 
-However, it does not mean it can't be extended and improved if anyone
-finds it useful enough to do so.
-
-The code can be used as base for your integration projects,
-especially when calling external commands or services as part of the
-integration (which is almost every time:)
+The Dynflow actions and connectors can also be used in another
+apps that run Dynflow on backend.
 
 TODO
 ----
