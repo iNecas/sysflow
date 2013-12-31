@@ -1,2 +1,2 @@
 require 'sysflow'
-Sysflow.dynflow_load
+Sysflow.dynflow_load(true)

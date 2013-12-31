@@ -36,13 +36,17 @@ gem 'sysflow', git: 'git@github.com:iNecas/sysflow.git'
 and run the following code in the initialization phase of the application
 (perhaps in `config/initializers/sysflow.rb`):
 
-```
+```ruby
 Sysflow.dynflow_load
 ```
 
 If [Dyntask](https://www.github.com/iNecas/dyntask) is present, it
 adds the actions to eager load paths, so that code reloading works
-in development mode as well.
+in development mode as well, by calling:
+
+```ruby
+Sysflow.dynflow_load(true)
+```
 
 Purpose
 -------
