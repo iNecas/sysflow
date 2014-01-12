@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(version: 20131209122644) do
   add_index "dynflow_execution_plans", ["uuid"], name: "dynflow_execution_plans_uuid_index", unique: true
   add_index "dynflow_execution_plans", ["uuid"], name: "sqlite_autoindex_dynflow_execution_plans_1", unique: true
 
+  create_table "dynflow_schema_info", id: false, force: true do |t|
+    t.integer "version", default: 0, null: false
+  end
+
   create_table "dynflow_steps", primary_key: "execution_plan_uuid", force: true do |t|
     t.integer   "id"
     t.integer   "action_id"
@@ -71,10 +75,6 @@ ActiveRecord::Schema.define(version: 20131209122644) do
     t.string   "result",                              null: false
     t.decimal  "progress",    precision: 5, scale: 4
     t.string   "external_id"
-  end
-
-  create_table "schema_info", id: false, force: true do |t|
-    t.integer "version", default: 0, null: false
   end
 
 end

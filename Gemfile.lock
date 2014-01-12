@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:iNecas/dynflow.git
-  revision: 9073e4292ea842ca4613bd0396953cfd16ab3627
+  revision: 227c7e6b9811ab6b7f7864b1836ec618f30191b2
   specs:
     dynflow (0.1.0)
       activesupport
@@ -68,7 +68,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (4.7.5)
-    multi_json (1.8.2)
+    multi_json (1.8.4)
     pg (0.17.1)
     polyglot (0.3.3)
     pry (0.9.12.4)
