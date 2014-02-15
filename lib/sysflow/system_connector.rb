@@ -123,7 +123,7 @@ module Sysflow
 
     def plan_next_refresh
       if outputs.any? && !@refresh_planned
-        Dyntask.world.clock.ping(self, Time.now + refresh_interval, RefreshActions)
+        Dyntask.dynflow.world.clock.ping(self, Time.now + refresh_interval, RefreshActions)
         @refresh_planned = true
       end
     end

@@ -10,8 +10,8 @@ module Sysflow
       end
 
       def task_output
-        self.all_actions.select do |action|
-          action.action_class.name == input[:action_class]
+        execution_plan.actions.select do |action|
+          action.class.name == input[:action_class]
         end.map do |action|
           { input:  action.input,
             output: action.output }

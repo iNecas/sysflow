@@ -22,9 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 # Dynflow stuff
-gem 'dynflow', git: 'git@github.com:iNecas/dynflow.git'
-gem 'sinatra' # we use the dynflow web console
-gem 'sequel'  # we use the dynflow default Dynflow persistence adapter
+gem 'dynflow', git: 'git@github.com:Dynflow/dynflow.git'
 gem 'dyntask', git: 'git@github.com:iNecas/dyntask.git'
 
 group :development do
