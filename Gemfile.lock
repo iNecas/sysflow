@@ -1,8 +1,8 @@
 GIT
   remote: git@github.com:Dynflow/dynflow.git
-  revision: 904c26878c40e5ab1d78399066790cfc60aa2f9d
+  revision: 6a569c3d368f25018bdb9b716c77af5eeea8dd52
   specs:
-    dynflow (0.3.0)
+    dynflow (0.4.0)
       activesupport
       algebrick (~> 0.4.0)
       apipie-params
@@ -74,7 +74,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.4)
     pg (0.17.1)
-    polyglot (0.3.3)
+    polyglot (0.3.4)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -111,7 +111,7 @@ GEM
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
     slop (3.4.7)
-    sprockets (2.10.1)
+    sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
