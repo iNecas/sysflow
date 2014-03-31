@@ -1,15 +1,4 @@
 GIT
-  remote: git@github.com:Dynflow/dynflow.git
-  revision: 6a569c3d368f25018bdb9b716c77af5eeea8dd52
-  specs:
-    dynflow (0.4.0)
-      activesupport
-      algebrick (~> 0.4.0)
-      apipie-params
-      multi_json
-      uuidtools
-
-GIT
   remote: git@github.com:iNecas/dyntask.git
   revision: 8ee629f5805567e5f5c07ab86de522a49cc00594
   specs:
@@ -58,6 +47,12 @@ GEM
     builder (3.1.4)
     coderay (1.1.0)
     daemons (1.1.9)
+    dynflow (0.6.0)
+      activesupport
+      algebrick (~> 0.4.0)
+      apipie-params
+      multi_json
+      uuidtools
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -105,7 +100,7 @@ GEM
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
-    sequel (4.7.0)
+    sequel (4.8.0)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -139,7 +134,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  dynflow!
+  dynflow (~> 0.6.0)
   dyntask!
   jquery-rails
   pg
