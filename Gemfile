@@ -22,7 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 # Dynflow stuff
-gem 'dynflow', '~> 0.6.0'
+gem 'dynflow'
 gem 'dyntask', git: 'git@github.com:iNecas/dyntask.git'
 
 group :development do
