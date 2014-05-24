@@ -11,54 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209122644) do
+ActiveRecord::Schema.define(version: 20140324104010) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "dynflow_actions", id: false, force: true do |t|
-    t.string  "execution_plan_uuid", limit: 36, null: false
-    t.integer "id",                             null: false
+  create_table "dynflow_actions", primary_key: "execution_plan_uuid", force: true do |t|
+    t.integer "id"
     t.text    "data"
   end
 
-  add_index "dynflow_actions", ["execution_plan_uuid", "id"], name: "dynflow_actions_execution_plan_uuid_id_index", unique: true, using: :btree
-  add_index "dynflow_actions", ["execution_plan_uuid"], name: "dynflow_actions_execution_plan_uuid_index", using: :btree
+  add_index "dynflow_actions", ["execution_plan_uuid", "id"], name: "dynflow_actions_execution_plan_uuid_id_index", unique: true
+  add_index "dynflow_actions", ["execution_plan_uuid", "id"], name: "sqlite_autoindex_dynflow_actions_1", unique: true
+  add_index "dynflow_actions", ["execution_plan_uuid"], name: "dynflow_actions_execution_plan_uuid_index"
 
-  create_table "dynflow_execution_plans", id: false, force: true do |t|
-    t.string   "uuid",           limit: 36, null: false
-    t.text     "data"
-    t.text     "state"
-    t.text     "result"
-    t.datetime "started_at"
-    t.datetime "ended_at"
-    t.float    "real_time"
-    t.float    "execution_time"
+  create_table "dynflow_execution_plans", primary_key: "uuid", force: true do |t|
+    t.text      "data"
+    t.string    "state"
+    t.string    "result"
+    t.timestamp "started_at"
+    t.timestamp "ended_at"
+    t.float     "real_time"
+    t.float     "execution_time"
   end
 
-  add_index "dynflow_execution_plans", ["uuid"], name: "dynflow_execution_plans_uuid_index", unique: true, using: :btree
+  add_index "dynflow_execution_plans", ["uuid"], name: "dynflow_execution_plans_uuid_index", unique: true
+  add_index "dynflow_execution_plans", ["uuid"], name: "sqlite_autoindex_dynflow_execution_plans_1", unique: true
 
   create_table "dynflow_schema_info", id: false, force: true do |t|
     t.integer "version", default: 0, null: false
   end
 
-  create_table "dynflow_steps", id: false, force: true do |t|
-    t.string   "execution_plan_uuid", limit: 36, null: false
-    t.integer  "id",                             null: false
-    t.integer  "action_id"
-    t.text     "data"
-    t.text     "state"
-    t.datetime "started_at"
-    t.datetime "ended_at"
-    t.float    "real_time"
-    t.float    "execution_time"
-    t.float    "progress_done"
-    t.float    "progress_weight"
+  create_table "dynflow_steps", primary_key: "execution_plan_uuid", force: true do |t|
+    t.integer   "id"
+    t.integer   "action_id"
+    t.text      "data"
+    t.string    "state"
+    t.timestamp "started_at"
+    t.timestamp "ended_at"
+    t.float     "real_time"
+    t.float     "execution_time"
   end
 
-  add_index "dynflow_steps", ["execution_plan_uuid", "action_id"], name: "dynflow_steps_execution_plan_uuid_action_id_index", using: :btree
-  add_index "dynflow_steps", ["execution_plan_uuid", "id"], name: "dynflow_steps_execution_plan_uuid_id_index", unique: true, using: :btree
-  add_index "dynflow_steps", ["execution_plan_uuid"], name: "dynflow_steps_execution_plan_uuid_index", using: :btree
+  add_index "dynflow_steps", ["execution_plan_uuid", "action_id"], name: "dynflow_steps_execution_plan_uuid_action_id_index"
+  add_index "dynflow_steps", ["execution_plan_uuid", "id"], name: "dynflow_steps_execution_plan_uuid_id_index", unique: true
+  add_index "dynflow_steps", ["execution_plan_uuid", "id"], name: "sqlite_autoindex_dynflow_steps_1", unique: true
+  add_index "dynflow_steps", ["execution_plan_uuid"], name: "dynflow_steps_execution_plan_uuid_index"
 
   create_table "dyntask_locks", force: true do |t|
     t.string  "task_id",       null: false
@@ -68,7 +63,7 @@ ActiveRecord::Schema.define(version: 20131209122644) do
     t.boolean "exclusive"
   end
 
-  add_index "dyntask_locks", ["resource_type", "resource_id"], name: "index_dyntask_locks_on_resource_type_and_resource_id", using: :btree
+  add_index "dyntask_locks", ["resource_type", "resource_id"], name: "index_dyntask_locks_on_resource_type_and_resource_id"
 
   create_table "dyntask_tasks", id: false, force: true do |t|
     t.string   "id"
@@ -76,9 +71,8 @@ ActiveRecord::Schema.define(version: 20131209122644) do
     t.string   "action"
     t.datetime "started_at"
     t.datetime "ended_at"
-    t.string   "state",                               null: false
-    t.string   "result",                              null: false
-    t.decimal  "progress",    precision: 5, scale: 4
+    t.string   "state",       null: false
+    t.string   "result",      null: false
     t.string   "external_id"
   end
 
